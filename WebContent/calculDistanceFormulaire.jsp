@@ -76,7 +76,7 @@
 		<div class="container">
 			<div class="intro">
 				<img class="intro-img img-fluid mb-3 mb-lg-0 rounded"
-					src="img/products-02.jpg" alt="">
+					src="img/products-01.jpg" alt="">
 
 				<div class="intro-text left-0 text-center bg-faded p-5 rounded">
 					<h2 class="section-heading mb-4">

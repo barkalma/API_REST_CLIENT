@@ -73,7 +73,7 @@
 		<div class="container">
 			<div class="intro">
 				<img class="intro-img img-fluid mb-3 mb-lg-0 rounded"
-					src="img/intro.jpg" alt="">
+					src="img/tour_eiffel.jpg" alt="">
 
 				<div class="intro-text left-0 text-center bg-faded p-5 rounded">
 					<h2 class="section-heading mb-4">

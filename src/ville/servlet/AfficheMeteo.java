@@ -15,8 +15,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-
-import ville.bean.VilleBuilder;
 import ville.bean.VilleMeteo;
 
 /**
@@ -102,7 +100,7 @@ public class AfficheMeteo extends HttpServlet {
 		String population = "Inconnu";
 
 		try {
-			URL urlPop = new URL("https://geo.api.gouv.fr/communes/" + villeMeteo.getCodeCommuneInsee() + "?fields=population");
+			URL urlPop = new URL("https://geo.api.gouv.fr/communes?codePostal="+ villeMeteo.getCodePostal().split("\"")[1] +"&fields=population");
 			HttpsURLConnection conPop = (HttpsURLConnection) urlPop.openConnection();
 			conPop.setRequestMethod("GET");
 
