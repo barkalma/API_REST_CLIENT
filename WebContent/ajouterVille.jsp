@@ -69,70 +69,70 @@
 		</div>
 	</nav>
 
-		<section class="page-section clearfix">
-			<div class="container">
-				<div class="intro">
-					<img class="intro-img img-fluid mb-3 mb-lg-0 rounded"
-						src="img/tour_eiffel.jpg" alt="">
+	<section class="page-section clearfix">
+		<div class="container">
+			<div class="intro">
+				<img class="intro-img img-fluid mb-3 mb-lg-0 rounded"
+					src="img/tour_eiffel.jpg" alt="">
 
-					<div class="intro-text left-0 text-center bg-faded p-5 rounded">
-						<h2 class="section-heading mb-4">
-							<span>Ajout d'une ville :</span> <span
-								class="section-heading-upper" style="color: red"> <%
+				<div class="intro-text left-0 text-center bg-faded p-5 rounded">
+					<h2 class="section-heading mb-4">
+						<span>Ajout d'une ville :</span> <span
+							class="section-heading-upper" style="color: red"> <%
  	if (!session.getAttribute("messageErreur").equals("")) {
  %> <%!String message;%> <%
  	message = session.getAttribute("messageErreur").toString();
  %> <%=message%> <%
  	}
  %>
-							</span>
-						</h2>
+						</span>
+					</h2>
 
-						<form action="AjoutVille" method="post">
-							<div class="form-group text-left">
-								<label for="nom">Code Commune Insee :</label> <input
-									class="form-control" type="text" id="codeCommuneInsee"
-									name="codeCommuneInsee" required>
-							</div>
-							<div class="form-group text-left">
-								<label for="prenom">Nom Commune :</label> <input
-									class="form-control" type="text" id="nomCommune"
-									name="nomCommune" required>
-							</div>
-							<div class="form-group text-left">
-								<label>Code Postal :</label> <input class="form-control"
-									type="text" id="codePostal" name="codePostal" required>
-							</div>
-							<div class="form-group text-left">
-								<label>Libelle Acheminement :</label> <input
-									class="form-control" type="text" id="libelleAcheminement"
-									name="libelleAcheminement" required>
-							</div>
-							<div class="form-group text-left">
-								<label>Ligne 5 :</label> <input class="form-control" type="text"
-									id="ligne5" name="ligne5">
-							</div>
-							<div class="form-group text-left">
-								<label>Lattitude :</label> <input class="form-control"
-									type="text" id="lattitude" name="lattitude" required>
-							</div>
-							<div class="form-group text-left">
-								<label>Longitude :</label> <input class="form-control"
-									type="text" id="longitude" name="longitude" required>
-							</div>
+					<form action="AjoutVille" method="post">
+						<div class="form-group text-left">
+							<label for="nom">Code Commune Insee :</label> <input
+								class="form-control" type="text" id="codeCommuneInsee"
+								name="codeCommuneInsee" required>
+						</div>
+						<div class="form-group text-left">
+							<label for="prenom">Nom Commune :</label> <input
+								class="form-control" type="text" id="nomCommune"
+								name="nomCommune" required>
+						</div>
+						<div class="form-group text-left">
+							<label>Code Postal :</label> <input class="form-control"
+								type="text" id="codePostal" name="codePostal" required>
+						</div>
+						<div class="form-group text-left">
+							<label>Libelle Acheminement :</label> <input class="form-control"
+								type="text" id="libelleAcheminement" name="libelleAcheminement"
+								required>
+						</div>
+						<div class="form-group text-left">
+							<label>Ligne 5 :</label> <input class="form-control" type="text"
+								id="ligne5" name="ligne5">
+						</div>
+						<div class="form-group text-left">
+							<label>Lattitude :</label> <input class="form-control"
+								type="text" id="lattitude" name="lattitude" required>
+						</div>
+						<div class="form-group text-left">
+							<label>Longitude :</label> <input class="form-control"
+								type="text" id="longitude" name="longitude" required>
+						</div>
 
-							<div class="intro-button mx-auto">
-								<input type="submit" class="btn btn-primary btn-xl"
-									value="Ajouter cette ville" />
-							</div>
+						<div class="intro-button mx-auto">
+							<input type="submit" class="btn btn-primary btn-xl"
+								value="Ajouter cette ville" />
+						</div>
 
-						</form>
-					</div>
+					</form>
 				</div>
 			</div>
-		</section>
+		</div>
+	</section>
 
-	<footer class="footer text-faded text-center py-5" >
+	<footer class="footer text-faded text-center py-5">
 		<div class="container">
 			<p class="m-0 small">Copyright &copy; Villes de France 2019</p>
 		</div>

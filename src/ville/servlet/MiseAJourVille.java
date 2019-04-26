@@ -74,18 +74,14 @@ public class MiseAJourVille extends HttpServlet {
 		villeFrance.setLattitude(request.getParameter("lattitude"));
 		villeFrance.setLongitude(request.getParameter("longitude"));
 		
-		
         // Create some NameValuePair for HttpPost parameters
-        List<NameValuePair> arguments = new ArrayList<>(1);
+        List<NameValuePair> arguments = new ArrayList<>();
         arguments.add(new BasicNameValuePair("ville", villeFrance.toString()));
-        
         
         try {
             post.setEntity(new UrlEncodedFormEntity(arguments));
             HttpResponse reponse = client.execute(post);
 
-            // Print out the response message
-            System.out.println(EntityUtils.toString(reponse.getEntity()));
             
         } catch (IOException e) {
             e.printStackTrace();
