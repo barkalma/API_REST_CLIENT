@@ -120,7 +120,7 @@ public class AfficheMeteo extends HttpServlet {
 				population = "Inconnu";
 			}
 		} catch (Exception e) {
-
+			throw e;
 		}
 
 		HttpSession session = request.getSession();

@@ -4,6 +4,7 @@
   <artifactId>API_REST_Client</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <packaging>war</packaging>
+  <name>API_REST_Client</name>
   <build>
     <sourceDirectory>src</sourceDirectory>
     <plugins>

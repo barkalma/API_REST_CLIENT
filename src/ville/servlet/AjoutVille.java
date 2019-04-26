@@ -88,7 +88,7 @@ public class AjoutVille extends HttpServlet {
 				System.out.println(EntityUtils.toString(reponse.getEntity()));
 
 			} catch (IOException e) {
-				e.printStackTrace();
+				throw e;
 			}
 			session.setAttribute("message", "succesAjout");
 			this.getServletContext().getRequestDispatcher("/messageRequete.jsp").forward(request, response);
