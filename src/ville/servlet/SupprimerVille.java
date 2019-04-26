@@ -61,7 +61,7 @@ public class SupprimerVille extends HttpServlet {
             System.out.println(EntityUtils.toString(reponse.getEntity()));
             
         } catch (IOException e) {
-            e.printStackTrace();
+        	throw e;
         }		
 		session.setAttribute("message", "SuccesSuppr");
 		this.getServletContext().getRequestDispatcher("/messageRequete.jsp").forward(request, response);

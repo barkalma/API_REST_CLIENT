@@ -84,7 +84,7 @@ public class MiseAJourVille extends HttpServlet {
 
             
         } catch (IOException e) {
-            e.printStackTrace();
+            throw e;
         }		
 		session.setAttribute("message", "succesModif");
 		this.getServletContext().getRequestDispatcher("/messageRequete.jsp").forward(request, response);
