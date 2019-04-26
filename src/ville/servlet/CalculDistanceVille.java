@@ -7,8 +7,6 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLEncoder;
 import java.text.DecimalFormat;
-import java.util.ArrayList;
-import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -50,13 +48,13 @@ public class CalculDistanceVille extends HttpServlet {
 
 		villebuilder1.setCodeCommuneInsee(ville1);
 		villebuilder2.setCodeCommuneInsee(ville2);
-		
+
 		String responseVille1;
 		String responseVille2;
 
 		URL url1 = new URL("http://localhost:8181/villeFranceFind?value=" + URLEncoder.encode(ville1, "UTF-8"));
 		URL url2 = new URL("http://localhost:8181/villeFranceFind?value=" + URLEncoder.encode(ville2, "UTF-8"));
-		
+
 		responseVille1 = this.connection(url1);
 
 		villebuilder1 = this.toVille(responseVille1);
@@ -69,7 +67,7 @@ public class CalculDistanceVille extends HttpServlet {
 				Double.parseDouble(villebuilder1.getLongitude().replace("\"", "")),
 				Double.parseDouble(villebuilder2.getLattitude().replace("\"", "")),
 				Double.parseDouble(villebuilder2.getLongitude().replace("\"", "")));
-		
+
 		DecimalFormat df = new DecimalFormat("#.##");
 
 		session.setAttribute("distance", df.format(distance));
@@ -138,14 +136,13 @@ public class CalculDistanceVille extends HttpServlet {
 
 	protected double calculDistance(double villeDepartLatitude, double villeDepartLongitude,
 			double villeArriveeLatitude, double villeArriveeLongitude) {
-		double distance = 0;
 
 		double latitudeDegre1 = Math.toDegrees(villeDepartLatitude);
 		double longitudeDegre1 = Math.toDegrees(villeDepartLongitude);
 		double latitudeDegre2 = Math.toDegrees(villeArriveeLatitude);
 		double longitudeDegre2 = Math.toDegrees(villeArriveeLongitude);
 
-		distance = 6372 * (Math.acos(Math.sin(latitudeDegre1) * Math.sin(latitudeDegre2)
+		double distance = 6372 * (Math.acos(Math.sin(latitudeDegre1) * Math.sin(latitudeDegre2)
 				+ Math.cos(latitudeDegre1) * Math.cos(latitudeDegre2) * Math.cos(longitudeDegre2 - longitudeDegre1)));
 
 		return distance;

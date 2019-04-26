@@ -6,7 +6,6 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLEncoder;
-import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -24,7 +23,6 @@ import org.apache.http.client.entity.UrlEncodedFormEntity;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.impl.client.HttpClientBuilder;
 import org.apache.http.message.BasicNameValuePair;
-import org.apache.http.util.EntityUtils;
 
 import ville.bean.VilleBuilder;
 
@@ -40,7 +38,6 @@ public class AjoutVille extends HttpServlet {
 	 */
 	public AjoutVille() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -57,7 +54,6 @@ public class AjoutVille extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		// TODO Auto-generated method stub
 
 		HttpSession session = request.getSession();
 
@@ -76,16 +72,14 @@ public class AjoutVille extends HttpServlet {
 		List<VilleBuilder> listeVille = this.getListVille(request, response, villeFrance.getCodeCommuneInsee());
 		// Create some NameValuePair for HttpPost parameters
 
-		if (listeVille.size() == 0) {
+		if (listeVille.isEmpty()) {
 			List<NameValuePair> arguments = new ArrayList<>();
 			arguments.add(new BasicNameValuePair("value", villeFrance.toString()));
 
 			try {
 				post.setEntity(new UrlEncodedFormEntity(arguments));
-				HttpResponse reponse = client.execute(post);
+				client.execute(post);
 
-				// Print out the response message
-				System.out.println(EntityUtils.toString(reponse.getEntity()));
 
 			} catch (IOException e) {
 				throw e;
@@ -102,8 +96,7 @@ public class AjoutVille extends HttpServlet {
 
 	protected List<VilleBuilder> getListVille(HttpServletRequest request, HttpServletResponse response,
 			String codeCommuneInsee) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		HttpSession session = request.getSession();
+
 
 		URL url = new URL(
 				"http://localhost:8181/villeFranceFind?value=" + URLEncoder.encode(codeCommuneInsee, "UTF-8"));

@@ -29,7 +29,6 @@ public class AfficheMeteo extends HttpServlet {
 	 */
 	public AfficheMeteo() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
 	/**
@@ -38,10 +37,9 @@ public class AfficheMeteo extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		// TODO Auto-generated method stub
+
 		String ville = request.getParameter("ville");
 
-		VilleMeteo villeMeteo = new VilleMeteo();
 
 		URL url = new URL("http://localhost:8181/villeFranceFind?value=" + URLEncoder.encode(ville, "UTF-8"));
 
@@ -50,6 +48,7 @@ public class AfficheMeteo extends HttpServlet {
 
 		BufferedReader in = new BufferedReader(new InputStreamReader(con.getInputStream()));
 		String inputLine;
+		
 		StringBuffer response1 = new StringBuffer();
 		while ((inputLine = in.readLine()) != null) {
 			response1.append(inputLine);
@@ -57,7 +56,7 @@ public class AfficheMeteo extends HttpServlet {
 		in.close();
 		
 		ville = response1.toString();
-		villeMeteo = this.toVilleMeteo(ville);
+		VilleMeteo villeMeteo = this.toVilleMeteo(ville);
 
 		URL urlMeteo = new URL("http://api.openweathermap.org/data/2.5/weather?" + "lat=" + villeMeteo.getLattitude().split("\"")[1] + "&lon="
 				+ villeMeteo.getLongitude().split("\"")[1] + "&APPID=06560519526bae616c17bb73cae22647");
@@ -74,19 +73,13 @@ public class AfficheMeteo extends HttpServlet {
 		}
 		inMeteo.close();
 
-		int debutTemps = 0;
-		int finTemps = 0;
-		int debutTemperature = 0;
-		int finTemperature = 0;
-		int debutIcone = 0;
-		int finIcone = 0;
 
-		debutTemps = responseMeteo.indexOf("weather");
-		finTemps = responseMeteo.indexOf(",\"description\"");
-		debutTemperature = responseMeteo.indexOf("temp\":");
-		finTemperature = responseMeteo.indexOf(",\"pressure");
-		debutIcone = responseMeteo.indexOf("\"weather\":[{");
-		finIcone = responseMeteo.indexOf("],\"base\"");
+		int debutTemps = responseMeteo.indexOf("weather");
+		int finTemps = responseMeteo.indexOf(",\"description\"");
+		int debutTemperature = responseMeteo.indexOf("temp\":");
+		int finTemperature = responseMeteo.indexOf(",\"pressure");
+		int debutIcone = responseMeteo.indexOf("\"weather\":[{");
+		int finIcone = responseMeteo.indexOf("],\"base\"");
 
 		String temps = responseMeteo.substring(debutTemps + 7, finTemps);
 		temps = temps.substring(temps.indexOf("main\":") + 7, temps.length() - 1);
@@ -141,16 +134,14 @@ public class AfficheMeteo extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
 
-	private String kelvinToCelcius(String temperature) {
-		Double celcius = (Double.parseDouble(temperature) - 273.15);
+	private static String kelvinToCelcius(String temperature) {
+		Double celcius = Double.parseDouble(temperature) - 273.15;
 		DecimalFormat f = new DecimalFormat();
 		f.setMaximumFractionDigits(2);
-		String temperatureCelcius = f.format(celcius);
-		return temperatureCelcius;
+		return f.format(celcius);
 	}
 	
 	public VilleMeteo toVilleMeteo(String villeString) {

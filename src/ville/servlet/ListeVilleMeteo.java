@@ -29,7 +29,6 @@ public class ListeVilleMeteo extends HttpServlet {
      */
     public ListeVilleMeteo() {
         super();
-        // TODO Auto-generated constructor stub
     }
 
     /**
@@ -38,7 +37,7 @@ public class ListeVilleMeteo extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		// TODO Auto-generated method stub
+
 		HttpSession session = request.getSession();
 		
 		URL url = new URL("http://localhost:8181/villeFranceGet");
@@ -53,7 +52,6 @@ public class ListeVilleMeteo extends HttpServlet {
 		}
 		in.close();
 
-		//System.out.println(response1.toString());
 
 		List<VilleBuilder> villes = new ArrayList<VilleBuilder>();
 		String str = response1.toString().replace("}]", "");
