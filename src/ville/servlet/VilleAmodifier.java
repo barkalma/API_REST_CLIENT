@@ -1,8 +1,6 @@
 package ville.servlet;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -25,7 +23,6 @@ public class VilleAmodifier extends HttpServlet {
 	 */
 	public VilleAmodifier() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
 	/**

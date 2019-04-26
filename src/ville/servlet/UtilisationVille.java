@@ -25,12 +25,11 @@ import ville.bean.VilleBuilder;
 public class UtilisationVille extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private int offset=0;
-
+	private String offsetName="offset";
 	/**
 	 * Default constructor.
 	 */
 	public UtilisationVille() {
-		// TODO Auto-generated constructor stub
 	}
 
 	/**
@@ -54,7 +53,6 @@ public class UtilisationVille extends HttpServlet {
 		}
 		in.close();
 
-		// System.out.println(response1.toString());
 
 		List<VilleBuilder> villes = new ArrayList<VilleBuilder>();
 		String str = response1.toString().replace("}]", "");
@@ -80,7 +78,7 @@ public class UtilisationVille extends HttpServlet {
 		}
 
 		session.setAttribute("villeFrance", villes);
-		session.setAttribute("offset", offset);
+		session.setAttribute(offsetName, offset);
 		this.getServletContext().getRequestDispatcher("/villeFrance.jsp").forward(request, response);
 
 	}
@@ -93,10 +91,10 @@ public class UtilisationVille extends HttpServlet {
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
 
-		if (request.getParameter("suivant")!= null && request.getParameter("suivant").equals("Page suivante") ) {
-			this.offset += Integer.parseInt(request.getParameter("offset"));
+		if (request.getParameter("suivant")!= null && ("Page suivante").equals(request.getParameter("suivant") )) {
+			this.offset += Integer.parseInt(request.getParameter(offsetName));
 		} else {
-			this.offset -= Integer.parseInt(request.getParameter("offset"));
+			this.offset -= Integer.parseInt(request.getParameter(offsetName));
 
 		}
 		doGet(request, response);
