@@ -38,7 +38,7 @@ public class UtilisationVille extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		// TODO Auto-generated method stub
+
 		HttpSession session = request.getSession();
 		URL url = new URL(
 				"http://localhost:8181/villeFrance?offset=" + URLEncoder.encode(String.valueOf(offset), "UTF-8"));
@@ -89,7 +89,6 @@ public class UtilisationVille extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		// TODO Auto-generated method stub
 
 		if (request.getParameter("suivant")!= null && ("Page suivante").equals(request.getParameter("suivant") )) {
 			this.offset += Integer.parseInt(request.getParameter(offsetName));

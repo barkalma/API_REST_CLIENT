@@ -106,7 +106,7 @@ public class AfficheMeteo extends HttpServlet {
 			}
 			inPop.close();
 
-			if (!responsePop.equals("Not Found")) {
+			if (!("Not Found").equals(responsePop.toString())) {
 				population = responsePop.substring(responsePop.indexOf("population") + 12,
 						responsePop.indexOf(",\"nom\""));
 			} else {
