@@ -45,7 +45,7 @@ public class ListeVille extends HttpServlet {
 
 		BufferedReader in = new BufferedReader(new InputStreamReader(con.getInputStream()));
 		String inputLine;
-		StringBuffer response1 = new StringBuffer();
+		StringBuilder response1 = new StringBuilder();
 		while ((inputLine = in.readLine()) != null) {
 			response1.append(inputLine);
 		}

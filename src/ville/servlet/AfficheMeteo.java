@@ -49,7 +49,7 @@ public class AfficheMeteo extends HttpServlet {
 		BufferedReader in = new BufferedReader(new InputStreamReader(con.getInputStream()));
 		String inputLine;
 		
-		StringBuffer response1 = new StringBuffer();
+		StringBuilder response1 = new StringBuilder();
 		while ((inputLine = in.readLine()) != null) {
 			response1.append(inputLine);
 		}
@@ -66,7 +66,7 @@ public class AfficheMeteo extends HttpServlet {
 
 		BufferedReader inMeteo = new BufferedReader(new InputStreamReader(conMeteo.getInputStream()));
 		String inputLineMeteo;
-		StringBuffer responseMeteo = new StringBuffer();
+		StringBuilder responseMeteo = new StringBuilder();
 
 		while ((inputLineMeteo = inMeteo.readLine()) != null) {
 			responseMeteo.append(inputLineMeteo);
@@ -99,7 +99,7 @@ public class AfficheMeteo extends HttpServlet {
 
 			BufferedReader inPop = new BufferedReader(new InputStreamReader(conPop.getInputStream()));
 			String inputLinePop;
-			StringBuffer responsePop = new StringBuffer();
+			StringBuilder responsePop = new StringBuilder();
 
 			while ((inputLinePop = inPop.readLine()) != null) {
 				responsePop.append(inputLinePop);
