@@ -59,7 +59,7 @@
 							une distance</a></li>
 					<li class="nav-item px-lg-4"><a
 						class="nav-link text-uppercase text-expanded"
-						href="ajouterVille.jsp">Ajouter une ville</a></li>
+						href="AjoutVille">Ajouter une ville</a></li>
 					<li class="nav-item px-lg-4"><a
 						class="nav-link text-uppercase text-expanded"
 						href="ListeVilleMeteo">Meteo</a></li>
