@@ -152,10 +152,7 @@
 										class="btn btn-primary btn-md" value="Page suivante" />
 								</form>
 							</div>
-							<div>
-
-								<a class="btn btn-primary btn-xl" href="products.html">Retour</a>
-							</div>
+							
 						</div>
 					</div>
 				</div>
