@@ -135,10 +135,10 @@ public class CalculDistanceVille extends HttpServlet {
 	protected double calculDistance(double villeDepartLatitude, double villeDepartLongitude,
 			double villeArriveeLatitude, double villeArriveeLongitude) {
 
-		double latitudeDegre1 = Math.toDegrees(villeDepartLatitude);
-		double longitudeDegre1 = Math.toDegrees(villeDepartLongitude);
-		double latitudeDegre2 = Math.toDegrees(villeArriveeLatitude);
-		double longitudeDegre2 = Math.toDegrees(villeArriveeLongitude);
+		double latitudeDegre1 = Math.toRadians(villeDepartLatitude);
+		double longitudeDegre1 = Math.toRadians(villeDepartLongitude);
+		double latitudeDegre2 = Math.toRadians(villeArriveeLatitude);
+		double longitudeDegre2 = Math.toRadians(villeArriveeLongitude);
 
 		double distance = 6372 * (Math.acos(Math.sin(latitudeDegre1) * Math.sin(latitudeDegre2)
 				+ Math.cos(latitudeDegre1) * Math.cos(latitudeDegre2) * Math.cos(longitudeDegre2 - longitudeDegre1)));
